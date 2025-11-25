@@ -67,7 +67,8 @@ Cada módulo del repositorio incluye un proyecto de ejemplo con la estructura:
 ```text
 |- EjemploFuncion/
    |- initServer.sqf
-   |- ejemploFuncion.sqf
+   |- functions/
+      |- ejemploFuncion.sqf
 ```
 
 El archivo `initServer.sqf` del ejemplo contiene la línea o bloque de inicialización que debe copiarse al `initServer.sqf` de la misión.
