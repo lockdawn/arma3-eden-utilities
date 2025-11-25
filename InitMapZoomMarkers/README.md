@@ -83,18 +83,6 @@ En misiones MP:
 
 ## Contras de incorporar esta función en tu misión
 
-- ❌ **Requiere disciplina en el nombrado de marcadores**  
-  - Solo los marcadores incluidos en `_marksFar` y `_marksNear` serán gestionados.
-  - Si se olvida añadir un marcador nuevo a la lista correspondiente, no se verá afectado por el sistema de zoom y puede romper la coherencia visual.
-
-- ❌ **Comportamiento dependiente del mapa y del zoom del jugador**  
-  - La visibilidad depende de cómo cada jugador use el zoom.
-  - Dos jugadores en la misma zona, pero con distinto nivel de zoom, podrían ver distinta cantidad de información en el mapa (lo cual puede ser bueno o malo según tu diseño de misión).
-
-- ❌ **Posible “parpadeo” perceptual con muchos marcadores**  
-  - Si se usan muchos marcadores y el jugador juega mucho con el zoom, algunos pueden “aparecer/desaparecer” con frecuencia.
-  - En jugadores muy sensibles a cambios visuales, puede resultar un poco molesto si no se ajustan bien los umbrales de zoom.
-
 - ❌ **Potenciales conflictos con otros scripts de marcadores**  
   - Si otro script asume que ciertos marcadores siempre están visibles o controla su alpha de forma global, puede haber solapamientos lógicos.
   - Es recomendable centralizar toda la lógica de visibilidad de marcadores que dependan de zoom en este sistema, o documentar claramente qué marcadores están bajo su control.
@@ -103,4 +91,5 @@ En misiones MP:
 
 > **Resumen**:  
 > Esta función es una muy buena opción para cualquier misión MP que quiera mantener el mapa limpio y manejable, mostrando información a diferentes escalas, con impacto casi nulo en el servidor dedicado y un coste mínimo en el cliente. Solo requiere una buena organización de los marcadores y cierta coordinación con otros scripts que también modifiquen su visibilidad.
+
 
