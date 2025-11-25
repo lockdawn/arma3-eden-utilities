@@ -56,7 +56,7 @@ El comportamiento principal:
 ## Ejemplo de uso
 
 ```sqf
-[objTerminal] call fnc_objectDestructionEnabler;
+[objTerminal, 0.25] call fnc_objectDestructionEnabler;
 ```
 
 ---
@@ -64,3 +64,4 @@ El comportamiento principal:
 ## Resumen
 
 `fnc_objectDestructionEnabler` es una función ligera y robusta para dotar objetos de **destrucción inmediata basada en umbral de daño**, ideal para misiones MP con objetivos destructibles.
+
