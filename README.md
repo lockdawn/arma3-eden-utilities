@@ -27,7 +27,7 @@ Seleccione cualquiera de las carpetas para acceder a su respectiva documentació
   - Sistema de marcadores dinámicos basados en el nivel de **zoom del mapa del jugador**. Permite mostrar u ocultar marcadores según la distancia visual, reduciendo saturación y resaltando información relevante.
 
 - [`ObjectDestructionEnabler`](./ObjectDestructionEnabler/)
-  - Función ligera y robusta para dotar objetos de destrucción inmediata, ideal para objetos que no pueden destruirse porque no tienen daño activado.
+  - Función que convierte objetos indestructibles en destructibles, facilitando misiones donde es necesario eliminar objetivos por daño (bombas, granadas, etc) que por defecto no pueden dañarse.
  
 - [`RandomMinefieldSpawner`](./RandomMinefieldSpawner/)
   - Sistema que permite generar minas de forma aleatoria dentro del área de un trigger al activarse, y eliminarlas automáticamente al desactivarse.
