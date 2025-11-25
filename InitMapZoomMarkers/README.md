@@ -1,4 +1,4 @@
-# Marcadores por zoom (FAR / NEAR)
+# Marcadores en el mapa por zoom (FAR / NEAR)
 
 Este módulo añade un sistema de “bandas de zoom” para marcadores del mapa, pensado para misiones multijugador (MP) en servidor dedicado.  
 Divide tus marcadores en dos grupos:
@@ -103,3 +103,4 @@ En misiones MP:
 
 > **Resumen**:  
 > Esta función es una muy buena opción para cualquier misión MP que quiera mantener el mapa limpio y manejable, mostrando información a diferentes escalas, con impacto casi nulo en el servidor dedicado y un coste mínimo en el cliente. Solo requiere una buena organización de los marcadores y cierta coordinación con otros scripts que también modifiquen su visibilidad.
+
