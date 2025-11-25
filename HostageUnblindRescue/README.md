@@ -1,75 +1,67 @@
-# 📘 Sistema de Intel — Función `fnc_miscript`
+# fnc_miscript — Acción de quitar venda para rehenes en Arma 3
 
-Esta función convierte cualquier objeto del editor en un **objeto de inteligencia (Intel)** totalmente funcional para Arma 3.  
-Al recogerlo, el jugador obtiene automáticamente una entrada dentro de *Diario → Intel*, con imagen, título y contenido narrativo.
+## 📝 Descripción general
+Esta función agrega al rehén una acción contextual llamada **“Quitar Venda de los Ojos”**, permitiendo que el jugador interactúe con la IA para retirarle la venda.  
+Una vez ejecutada, la acción se elimina automáticamente y el rehén queda marcado como liberado visualmente, pudiendo ser detectado por un **trigger** u otro sistema de misión.
 
 ---
 
-## 📂 Ubicación
-
+## 📂 Ubicación del archivo
 ```
 functions/fnc_miscript.sqf
 ```
 
 ---
 
-## 🧩 Uso
-
-```sqf
-[_obj, _img, _title, _msg] call fnc_miscript;
-```
-
-### Parámetros
-
-| Parámetro | Tipo   | Descripción |
-|----------|--------|-------------|
-| `_obj`   | Object | Objeto que contendrá el Intel |
-| `_img`   | String | Ruta de la imagen a mostrar |
-| `_title` | String | Título del registro de Intel |
-| `_msg`   | String | Contenido HTML del informe |
+## ⚙️ Funcionamiento
+- La función recibe el objeto del rehén como parámetro.
+- Añade una acción al menú contextual del jugador.
+- Al ejecutarse:
+  - Quita las *goggles* del rehén (simulando quitar la venda).
+  - Elimina la acción para evitar que pueda usarse más de una vez.
+- Facilita la integración con triggers para detectar el rescate.
 
 ---
 
-## 📝 Qué hace la función
-
-1. Asigna una imagen personalizada al Intel.  
-2. Crea una entrada de diario con título y texto.  
-3. Define qué bando puede leer el Intel (BLUFOR por defecto).  
-4. Propaga la información al servidor y a todos los clientes (multiplayer seguro).
-
----
-
-## 📘 Ejemplo desde un *trigger*
+## 🚀 Uso en la misión
+Para usar esta función en cualquier rehén, agrega en su campo **Init** (o en un script):
 
 ```sqf
-private _obj   = intel_obj_1;
-private _img   = "images\un_hostage.paa";
-private _title = "Informe del Sgto. Makele";
-
-private _msg = "<br/>General de División Usain Sinjen:<br/><br/> ... etc ...";
-
-[_obj, _img, _title, _msg] call fnc_miscript;
+[this] call fnc_miscript;
 ```
 
 ---
 
-## 📘 Ejemplo desde el init de un objeto
+## 📌 Ejemplo de trigger de detección
+Puedes detectar el rescate con un trigger usando esta condición:
 
 ```sqf
-private _msg = "<br/>General de División Usain Sinjen:<br/><br/> ... etc ...";
+!(goggles rehénUnidad isEqualTo "G_Goggles_VR") // ejemplo si usabas goggles específicos
+```
 
-[this, "images\un_hostage.paa", "Informe del Sgto. Makele", _msg] call fnc_miscript;
+O más comúnmente:
+
+```sqf
+(goggles rehénUnidad isEqualTo [])
 ```
 
 ---
 
-## ✔️ Ventajas
+## 📈 Consideraciones de performance
+- Es **ligero**, corre solo cuando el jugador interactúa.
+- No usa bucles ni procesos persistentes.
+- Totalmente seguro en entornos multiplayer (la acción se ejecuta local al cliente).
 
-- Añade narrativa y contexto a misiones de forma elegante.  
-- Compatible con multiplayer y JIP.  
-- Fácil de integrar a cualquier misión.
+---
 
-## ⚠️ Consideraciones
+## ✔️ Pros de incorporar esta función
+- Fácil de integrar en cualquier misión.
+- Muy útil para operaciones de **rescate de rehenes**.
+- Inmersivo: el jugador “retira” la venda manualmente.
+- Compatible con triggers, sistemas de tareas, módulos Zeus y scripts personalizados.
 
-- Requiere que la misión incluya la estructura estándar de funciones (`CfgFunctions`).  
-- Las rutas de imágenes deben existir dentro del escenario o mod.  
+---
+
+## ❗ Contras
+- Requiere que el rehén tenga goggles o “venda”.
+- No notifica automáticamente al sistema de tareas (debe añadirse aparte si es necesario).
