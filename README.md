@@ -54,7 +54,7 @@ MiMision.Altis/
    # Otros scripts opcionales...
 ```
 
-### 2. Inicializar la función en initServer.sqf
+### 2. Inicializar la función en `initServer.sqf`
 
 Cada módulo del repositorio incluye un proyecto de ejemplo con la estructura:
 
@@ -64,7 +64,7 @@ Cada módulo del repositorio incluye un proyecto de ejemplo con la estructura:
    |- ejemploFuncion.sqf
 ```
 
-El archivo initServer.sqf del ejemplo contiene la línea o bloque de inicialización que debe copiarse al initServer.sqf de la misión.
+El archivo `initServer.sqf` del ejemplo contiene la línea o bloque de inicialización que debe copiarse al `initServer.sqf` de la misión.
 
 Esta inicialización garantiza que la función esté cargada y disponible cuando el servidor o host de la misión arranque.
 
