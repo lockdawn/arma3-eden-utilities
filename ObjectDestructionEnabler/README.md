@@ -35,7 +35,7 @@ El comportamiento principal:
 
 - **Sencilla de integrar**:  
   ```sqf
-  [myObject] call fnc_objectDestructionEnabler;
+  [myObject, 0.25] call fnc_objectDestructionEnabler;
   ```
 - Útil para objetivos tácticos o lógicos.
 - Eliminación inmediata y fiable.
@@ -64,4 +64,5 @@ El comportamiento principal:
 ## Resumen
 
 `fnc_objectDestructionEnabler` es una función ligera y robusta para dotar objetos de **destrucción inmediata basada en umbral de daño**, ideal para misiones MP con objetivos destructibles.
+
 
