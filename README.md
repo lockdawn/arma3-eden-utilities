@@ -52,3 +52,69 @@ MiMision.Altis/
 |- functions/
    |- fnc_splitIntoPatrolRoles.sqf
    # Otros scripts opcionales...
+```
+
+### 2. Inicializar la función en initServer.sqf
+
+Cada módulo del repositorio incluye un proyecto de ejemplo con la estructura:
+
+```text
+|- EjemploFuncion/
+   |- initServer.sqf
+   |- ejemploFuncion.sqf
+```
+
+El archivo initServer.sqf del ejemplo contiene la línea o bloque de inicialización que debe copiarse al initServer.sqf de la misión.
+
+Esta inicialización garantiza que la función esté cargada y disponible cuando el servidor o host de la misión arranque.
+
+### 3. Llamar a la función dentro de la misión
+
+Una vez inicializada la función, puede ser invocada desde:
+
+- Un trigger.
+- El campo Init de un objeto.
+- El campo Init de una unidad.
+- Otro script.
+
+Ejemplo de llamada para `fnc_splitIntoPatrolRoles`:
+
+```sqf
+[ia_01, [1609.61, 3300.1, 0], 200] call fnc_splitIntoPatrolRoles;
+```
+
+Donde:
+
+- ia_01 → Grupo de IA que realizará la patrulla.
+- [1609, 3300, 0] → Coordenadas del centro del área de patrullaje.
+- 100 → Radio del área de patrullaje en metros.
+
+Estructura general de llamada:
+
+[GrupoIA, [PosicionCentro], Radio] call NombreDeLaFunción;
+
+
+Cada módulo incluye un README con la explicación detallada de parámetros y ejemplos adicionales.
+
+Requisitos
+
+Arma 3 actualizado.
+
+Conocimientos básicos de:
+
+Estructura de una misión (mission.sqm, archivos init, etc.).
+
+Sintaxis SQF.
+
+Uso del Editor Eden.
+
+Contribuciones
+
+Se aceptan propuestas de mejora, correcciones y nuevos módulos.
+Las contribuciones pueden enviarse mediante:
+
+Issues (para reportar fallos o sugerir funciones)
+
+Pull Requests (para aportar código directamente)
+
+Se recomienda incluir una breve descripción técnica del cambio propuesto y un ejemplo de uso cuando corresponda.
