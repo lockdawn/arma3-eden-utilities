@@ -33,14 +33,22 @@ Seleccione cualquiera de las carpetas para acceder a su respectiva documentació
 
 ---
 
-## Estructura del repositorio
+## Instrucciones de integración en una misión
+
+A continuación se describe el flujo general para integrar cualquiera de las funciones de este repositorio en una misión de Arma 3.
+
+### 1. Copiar el archivo SQF a la carpeta `functions` de la misión
+
+1. En el directorio de la misión (por ejemplo: `MiMision.Altis/`), crear una carpeta llamada `functions` si aún no existe.
+2. Copiar el archivo `.sqf` de la función que se desea utilizar dentro de esa carpeta.
+
+Ejemplo:
 
 ```text
-|- README.txt                  # Documento principal del repositorio
-|- MapZoomMarkers/
-|    |- fn_initMapZoomMarkers.sqf
-|    |- README.*               # Documentación del módulo
-|
-|- splitIntoPatrolRoles/
-     |- fnc_splitIntoPatrolRoles.sqf
-     |- README.*               # Documentación del módulo
+MiMision.Altis/
+|- description.ext
+|- initServer.sqf
+|- mission.sqm
+|- functions/
+   |- fnc_splitIntoPatrolRoles.sqf
+   # Otros scripts opcionales...
