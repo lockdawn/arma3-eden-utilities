@@ -23,6 +23,15 @@ Cada carpeta del repositorio contiene **una función o módulo independiente**, 
 
 Seleccione cualquiera de las carpetas para acceder a su respectiva documentación:
 
+- [`AllLightsOut`](./AllLightsOut/)
+  - Sistema ...
+
+- [`CreateIntelObjects`](./CreateIntelObjects/)
+  - Sistema ...
+
+- [`HostageUnblindRescue`](./HostageUnblindRescue/)
+  - Sistema ...
+
 - [`InitMapZoomMarkers`](./InitMapZoomMarkers/)
   - Sistema de marcadores dinámicos basados en el nivel de **zoom del mapa del jugador**. Permite mostrar u ocultar marcadores según la distancia visual, reduciendo saturación y resaltando información relevante.
 
