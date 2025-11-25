@@ -23,11 +23,14 @@ Cada carpeta del repositorio contiene **una función o módulo independiente**, 
 
 Seleccione cualquiera de las carpetas para acceder a su respectiva documentación:
 
-- [`MapZoomMarkers`](./MapZoomMarkers/)
+- [`InitMapZoomMarkers`](./InitMapZoomMarkers/)
   - Sistema de marcadores dinámicos basados en el nivel de **zoom del mapa del jugador**. Permite mostrar u ocultar marcadores según la distancia visual, reduciendo saturación y resaltando información relevante.
 
-- [`splitIntoPatrolRoles`](./splitIntoPatrolRoles/)
+- [`SplitIntoPatrolRoles`](./SplitIntoPatrolRoles/)
   - Función que distribuye miembros de un grupo de IA en **roles de patrulla** dentro de un área definida. Facilita la generación rápida de comportamientos patrullados sin colocar manualmente cada unidad.
+ 
+- [`RandomMinefieldSpawner`](./RandomMinefieldSpawner/)
+  - Sistema que permite generar minas de forma aleatoria dentro del área de un trigger al activarse, y eliminarlas automáticamente al desactivarse.
 
 > Nuevos módulos y funciones serán añadidos progresivamente, cada uno con su propia documentación.
 
