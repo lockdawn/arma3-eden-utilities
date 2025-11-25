@@ -91,30 +91,18 @@ Donde:
 
 Estructura general de llamada:
 
+```sqf
 [GrupoIA, [PosicionCentro], Radio] call NombreDeLaFunción;
-
+```
 
 Cada módulo incluye un README con la explicación detallada de parámetros y ejemplos adicionales.
 
-Requisitos
-
-Arma 3 actualizado.
-
-Conocimientos básicos de:
-
-Estructura de una misión (mission.sqm, archivos init, etc.).
-
-Sintaxis SQF.
-
-Uso del Editor Eden.
-
-Contribuciones
+## Contribuciones
 
 Se aceptan propuestas de mejora, correcciones y nuevos módulos.
 Las contribuciones pueden enviarse mediante:
 
-Issues (para reportar fallos o sugerir funciones)
-
-Pull Requests (para aportar código directamente)
+- Issues (para reportar fallos o sugerir funciones)
+- Pull Requests (para aportar código directamente)
 
 Se recomienda incluir una breve descripción técnica del cambio propuesto y un ejemplo de uso cuando corresponda.
