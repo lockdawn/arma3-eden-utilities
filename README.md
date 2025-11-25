@@ -1,4 +1,4 @@
-# Compilación de Funciones SQF para Arma 3 (Eden Editor)
+# Utilidades en SQF para Arma 3 (Eden Editor)
 
 Este repositorio reúne una colección de **funciones, utilidades y efectos en SQF** diseñados para optimizar y agilizar el proceso de creación de misiones en **Arma 3**, particularmente dentro del **Editor Eden**.
 
