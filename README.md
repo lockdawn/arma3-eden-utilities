@@ -24,22 +24,22 @@ Cada carpeta del repositorio contiene **una función o módulo independiente**, 
 Seleccione cualquiera de las carpetas para acceder a su respectiva documentación:
 
 - [`AllLightsOut`](./AllLightsOut/)
-  - Sistema ...
+  - Sistema que simula una **sobrecarga eléctrica masiva** tras destruir una fuente de energía, provocando un apagón total en zonas definidas. Afecta luces, farolas y postes dentro de un radio configurable.
 
 - [`CreateIntelObjects`](./CreateIntelObjects/)
-  - Sistema ...
+  - Sistema para crear objetos Intel en tus misiones: al recoger documentos, carpetas o fotos, se **agrega automáticamente una sección Intel** en el mapa con el contenido encontrado (texto narrativo o imágenes).
 
 - [`HostageUnblindRescue`](./HostageUnblindRescue/)
-  - Sistema ...
+  - Sistema para detectar en un trigger de Arma 3 cuando un **rehén es rescatado**: el jugador retira la venda mediante acción contextual y el evento activa el trigger.
 
 - [`InitMapZoomMarkers`](./InitMapZoomMarkers/)
   - Sistema de marcadores dinámicos basados en el nivel de **zoom del mapa del jugador**. Permite mostrar u ocultar marcadores según la distancia visual, reduciendo saturación y resaltando información relevante.
 
 - [`ObjectDestructionEnabler`](./ObjectDestructionEnabler/)
-  - Función que convierte objetos indestructibles en destructibles, facilitando misiones donde es necesario eliminar objetivos por daño (bombas, granadas, etc) que por defecto no pueden dañarse.
+  - Función que convierte objetos indestructibles en destructibles, facilitando misiones donde es necesario **eliminar objetivos por daño** (bombas, granadas, etc) que por defecto no pueden dañarse.
  
 - [`RandomMinefieldSpawner`](./RandomMinefieldSpawner/)
-  - Sistema que permite generar minas de forma aleatoria dentro del área de un trigger al activarse, y eliminarlas automáticamente al desactivarse.
+  - Sistema que permite **generar minas de forma aleatoria** dentro del área de un trigger al activarse, y eliminarlas automáticamente al desactivarse.
 
 - [`SplitIntoPatrolRoles`](./SplitIntoPatrolRoles/)
   - Función que distribuye miembros de un grupo de IA en **roles de patrulla** dentro de un área definida. Facilita la generación rápida de comportamientos patrullados sin colocar manualmente cada unidad.
