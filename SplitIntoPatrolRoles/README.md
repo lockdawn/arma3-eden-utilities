@@ -25,7 +25,7 @@ Pensado para misiones **multijugador (MP)** en **servidor dedicado**, donde la I
 En resumen, `fnc_splitIntoPatrolRoles`:
 
 1. **Recibe como parámetros**:
-   - `0: GROUP` → Grupo principal ya existente (por ejemplo, `ia_01`).
+   - `0: GROUP` → Grupo principal ya existente (por ejemplo, `Alpha 1-1`).
    - `1: ARRAY` → Posición `[x, y, z]` que representa el centro de la zona (FOB, base, poblado).
    - `2: NUMBER` → Radio de trabajo, usado como referencia para:
      - Buscar edificios/torres relevantes.
@@ -93,7 +93,7 @@ El objetivo de la función es **tomar un grupo genérico** de IA y **convertirlo
   - Un grupo de IA.
   - Un trigger o script con la llamada:
     ```sqf
-    [ia_01, [1609.61, 3300.1, 0], 200] call fnc_splitIntoPatrolRoles;
+    [Alpha 1-1, [1609.61, 3300.1, 0], 100] call fnc_splitIntoPatrolRoles;
     ```
   Y dejas que la función haga el resto.
 
@@ -116,10 +116,6 @@ El objetivo de la función es **tomar un grupo genérico** de IA y **convertirlo
 
 ## Contras de incorporar esta función en tu misión
 
-- ❌ **Menor control fino sobre cada unidad**  
-  - La función toma decisiones automáticas sobre quién patrulla, quién va a torres, quién entra a interiores, etc.
-  - Si necesitas control absoluto (unidad por unidad, posición exacta por posición exacta), puede que prefieras configurar patrullas y guarniciones manualmente.
-
 - ❌ **Dependencia de la geometría del mapa**  
   - La utilidad de los roles (torres, edificios, interiores) depende de que:
     - Existan suficientes edificios/torres/interiores dentro del radio.
@@ -137,9 +133,9 @@ El objetivo de la función es **tomar un grupo genérico** de IA y **convertirlo
     - O reasignan grupos de forma agresiva,
     
     podrías sobrescribir o romper la lógica generada por `fnc_splitIntoPatrolRoles`.
-  - Es recomendable documentar en tu misión que **ese grupo se gestiona por esta función** y, si lo vas a tocar luego, hacerlo sobre los **subgrupos devueltos** por la función y no sobre el grupo original (que se elimina).
 
 ---
 
 > **Resumen**:  
 > `fnc_splitIntoPatrolRoles` es una herramienta muy útil para misiones MP donde quieres que un solo grupo de IA se despliegue de forma variada y semi-automática dentro de una zona. Aporta mucha “vida” y defensa orgánica con un impacto razonable en el servidor, siempre que se use de forma puntual y con parámetros coherentes con el diseño del escenario.
+
