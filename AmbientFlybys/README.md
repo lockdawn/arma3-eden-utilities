@@ -1,95 +1,112 @@
-# ✈️ Ambient Flyby's Function para Arma 3
+# ✈️ Ambient Flyby's
 
-Este script permite generar **sobrevuelos ambientales de aeronaves de
-forma dinámica y aleatoria en todo el mapa**, creando inmersión y
-sensación de actividad sin necesidad de colocar unidades manualmente.
+`fnc_ambientFlybys` es una función diseñada para generar tráfico aéreo
+ambiental en tu misión de Arma 3.
+Permite crear sobrevuelos de aeronaves de forma automática, aleatoria y
+optimizada, sin necesidad de colocar unidades manualmente en el editor.
 
-El sistema ejecuta un bucle continuo que genera aeronaves que cruzan el
-mapa a intervalos aleatorios, simulando tráfico aéreo militar (CAS,
-transporte, patrullas, etc.).
-
-------------------------------------------------------------------------
-
-## 📌 Descripción general
-
-Esta función utiliza `BIS_fnc_ambientFlyBy` para generar aeronaves que:
-
--   Aparecen fuera del área central del mapa\
--   Cruzan el mapa en línea recta\
--   Desaparecen automáticamente al finalizar su recorrido\
--   Se generan en intervalos aleatorios
+Su objetivo principal es **mejorar la inmersión** del escenario mediante
+actividad aérea constante sin afectar significativamente el rendimiento
+del servidor.
 
 ------------------------------------------------------------------------
 
-## ⚙️ Cómo funciona
+## 🧩 Instalación Paso a Paso
 
-### 🔁 Bucle principal
+### 1 Ubicación del archivo
+
+Coloca el archivo en tu estructura de misión:
+
+    functions/fnc_ambientFlybys.sqf
+
+------------------------------------------------------------------------
+
+### 2 Registrar la función en `description.ext`
+
+Ejemplo de configuración:
 
 ``` sqf
-[] spawn {
-    while { true } do {
-```
-
--   Ejecuta el sistema **de forma indefinida**
--   Usa `spawn` para correr en paralelo sin bloquear otros scripts
-
-------------------------------------------------------------------------
-
-### 🎲 Selección aleatoria de aeronaves
-
-``` sqf
-_type = [
-    [150, "FULL", "B_Plane_CAS_01_F"],
-    [40, "NORMAL", "B_Heli_Light_01_F"],
-    [60, "NORMAL", "B_Heli_Transport_01_F"]
-] call BIS_fnc_selectRandom;
+class CfgFunctions {
+    class FEL {
+        class Ambient {
+            class ambientFlybys {
+                file = "functions\fnc_ambientFlybys.sqf";
+            };
+        };
+    };
+};
 ```
 
 ------------------------------------------------------------------------
 
-### 📍 Cálculo de trayectoria
+## ⚙️ Guía de Configuración
 
-``` sqf
-_distance   = 5000;
-_direction  = random 360;
-_position   = getMarkerPos "BIS_bootcampCenter";
+### 📍 Requisito obligatorio
 
-_positionStart  = [_position, _distance, _direction] call BIS_fnc_relPos;
-_positionEnd    = [_position, _distance, _direction + 180] call BIS_fnc_relPos;
-```
+Debes crear un marker en el mapa con el siguiente nombre:
 
-------------------------------------------------------------------------
+    BIS_mapCenter
 
-### ✈️ Ejecución
-
-``` sqf
-[_positionStart, _positionEnd, _height, _speed, _class, WEST] call BIS_fnc_ambientFlyBy;
-```
+Este marker define el punto central desde donde se calculan las rutas de
+vuelo.
 
 ------------------------------------------------------------------------
 
-### ⏱️ Delay
+### 🎯 Ejecutar desde un Trigger
+
+#### Configuración recomendada:
+
+-   **Tipo:** None
+-   **Activación:** None
+-   **Repetible:** No
+
+#### Código en "On Activation":
 
 ``` sqf
-sleep 300 + random 150;
+[] spawn FEL_fnc_ambientFlybys;
 ```
+
+Esto iniciará el sistema de sobrevuelos de forma continua en segundo
+plano.
 
 ------------------------------------------------------------------------
 
-## 🧠 Uso en Eden Editor
+## ⚡ Ventajas y Performance
 
-1.  Crear archivo: `ambientFlybys.sqf`\
-2.  Crear marker: `BIS_bootcampCenter`\
-3.  Ejecutar en init.sqf:
+-   ✔️ No requiere unidades pre-colocadas en el editor
+-   ✔️ Bajo impacto en CPU y servidor
+-   ✔️ Las aeronaves se eliminan automáticamente
+-   ✔️ No genera lógica compleja de IA
+-   ✔️ Ideal para misiones grandes o persistentes
 
-``` sqf
-[] execVM "ambientFlybys.sqf";
-```
+Comparado con spawns manuales o IA completa, este sistema es
+significativamente más ligero.
 
 ------------------------------------------------------------------------
 
-## 🎯 Resultado
+## ⚠️ Limitaciones
 
--   Tráfico aéreo dinámico\
--   Mayor inmersión\
--   Sistema ligero y automático
+Este sistema es puramente ambiental, por lo tanto:
+
+-   ❌ No genera comportamiento táctico
+-   ❌ Las aeronaves no atacan ni interactúan
+-   ❌ No se pueden controlar fácilmente después del spawn
+-   ❌ No es adecuado para CAS real o inserciones
+
+------------------------------------------------------------------------
+
+## 🚫 Cuándo NO usarlo
+
+-   Misiones donde las aeronaves deban combatir
+-   Escenarios con lógica avanzada de IA aérea
+-   Sistemas donde se requiera control directo sobre unidades
+
+------------------------------------------------------------------------
+
+## 🎯 Resultado esperado
+
+Al implementar esta función correctamente, obtendrás:
+
+-   Tráfico aéreo dinámico
+-   Mayor realismo e inmersión
+-   Sistema automático y optimizado
