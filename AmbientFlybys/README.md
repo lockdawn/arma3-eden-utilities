@@ -1,31 +1,26 @@
-# ✈️ Ambient Flyby's
+# ✈️ Ambient Flyby's - fnc_ambientFlybys.sqf
 
-`fnc_ambientFlybys` es una función diseñada para generar tráfico aéreo
-ambiental en tu misión de Arma 3.
-Permite crear sobrevuelos de aeronaves de forma automática, aleatoria y
-optimizada, sin necesidad de colocar unidades manualmente en el editor.
+## 📌 ¿Qué es y para qué sirve?
 
-Su objetivo principal es **mejorar la inmersión** del escenario mediante
-actividad aérea constante sin afectar significativamente el rendimiento
-del servidor.
+`fnc_ambientFlybys` es una función diseñada para generar tráfico aéreo ambiental dentro de tu misión de Arma 3. Su propósito es crear sobrevuelos de aeronaves de forma automática, aleatoria y ligera, sin necesidad de colocar unidades manualmente en el editor.
 
-------------------------------------------------------------------------
+Esto permite que el escenario se sienta vivo, dinámico y con actividad constante, mejorando significativamente la inmersión del jugador sin añadir complejidad innecesaria.
+
+---
 
 ## 🧩 Instalación Paso a Paso
 
-### 1 Ubicación del archivo
+### 1️⃣ Ubicación del archivo
 
-Coloca el archivo en tu estructura de misión:
+```
+functions/fnc_ambientFlybys.sqf
+```
 
-    functions/fnc_ambientFlybys.sqf
+---
 
-------------------------------------------------------------------------
+### 2️⃣ description.ext
 
-### 2 Registrar la función en `description.ext`
-
-Ejemplo de configuración:
-
-``` sqf
+```sqf
 class CfgFunctions {
     class FEL {
         class Ambient {
@@ -37,76 +32,66 @@ class CfgFunctions {
 };
 ```
 
-------------------------------------------------------------------------
+---
 
-## ⚙️ Guía de Configuración
+## 🧠 Guía de Configuración
 
-### 📍 Requisito obligatorio
+### Marker requerido
 
-Debes crear un marker en el mapa con el siguiente nombre:
+```
+BIS_mapCenter
+```
 
-    BIS_mapCenter
+### Trigger
 
-Este marker define el punto central desde donde se calculan las rutas de
-vuelo.
-
-------------------------------------------------------------------------
-
-### 🎯 Ejecutar desde un Trigger
-
-#### Configuración recomendada:
-
--   **Tipo:** None
--   **Activación:** None
--   **Repetible:** No
-
-#### Código en "On Activation":
-
-``` sqf
+```sqf
 [] spawn FEL_fnc_ambientFlybys;
 ```
 
-Esto iniciará el sistema de sobrevuelos de forma continua en segundo
-plano.
+---
 
-------------------------------------------------------------------------
+## ✈️ Configuración
 
-## ⚡ Ventajas y Performance
+```
+[ALTURA, VELOCIDAD, CLASE]
+```
 
--   ✔️ No requiere unidades pre-colocadas en el editor
--   ✔️ Bajo impacto en CPU y servidor
--   ✔️ Las aeronaves se eliminan automáticamente
--   ✔️ No genera lógica compleja de IA
--   ✔️ Ideal para misiones grandes o persistentes
+### ALTURA
 
-Comparado con spawns manuales o IA completa, este sistema es
-significativamente más ligero.
+Metros AGL
 
-------------------------------------------------------------------------
+| Tipo | Altura |
+|------|--------|
+| Heli bajo | 20–60 |
+| Heli medio | 60–120 |
+| CAS | 100–200 |
+| Alto | 200–500+ |
+
+### VELOCIDAD
+
+```
+"NORMAL"
+"FULL"
+```
+
+---
+
+## ⚡ Ventajas
+
+- Bajo impacto
+- Automático
+- Sin IA pesada
+
+---
 
 ## ⚠️ Limitaciones
 
-Este sistema es puramente ambiental, por lo tanto:
+- No combate
+- No interacción
 
--   ❌ No genera comportamiento táctico
--   ❌ Las aeronaves no atacan ni interactúan
--   ❌ No se pueden controlar fácilmente después del spawn
--   ❌ No es adecuado para CAS real o inserciones
+---
 
-------------------------------------------------------------------------
+## 🎯 Resultado
 
-## 🚫 Cuándo NO usarlo
-
--   Misiones donde las aeronaves deban combatir
--   Escenarios con lógica avanzada de IA aérea
--   Sistemas donde se requiera control directo sobre unidades
-
-------------------------------------------------------------------------
-
-## 🎯 Resultado esperado
-
-Al implementar esta función correctamente, obtendrás:
-
--   Tráfico aéreo dinámico
--   Mayor realismo e inmersión
--   Sistema automático y optimizado
+- Inmersión
+- Tráfico dinámico
