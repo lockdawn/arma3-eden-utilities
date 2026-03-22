@@ -1,0 +1,64 @@
+// === Básico
+class Header
+{
+ gameType = RPG; //Coop,RPG,Sandbox,LOTH,TDM(teamdeathmatch),Zeus 
+ minPlayers = 1;//Minimo de JG
+ maxPlayers = 40;//Máximo de JG
+};
+
+// === Selector de Misiones
+briefingName = "Mi Mision";
+overviewPicture = "imagenes\MiFoto.paa";
+overviewText = "Texto";
+
+// === Pantalla de Carga
+onLoadName 		= "Mi Misión"; //Nombre de la misión
+author 			= "Editor";	//Autor								
+onLoadMission 	= "Texto"; //Texto debajo de la imagen de carga
+loadScreen 		= "imagenes\MiFoto.paa"; // imagen de carga(1024x512 pixeles)
+
+// === Informacion del Mundo
+class CfgWorlds // Configuraciones modifican factores que vienen con el mapa y se pueden alterar
+{
+    class any
+    {
+        author = "Creador del mapa";//Arriba a la izquierda en pantalla de carga
+        description = "Nombre del Mapa";  // Arriba a la izquierda en pantalla de carga
+        pictureMap = "Imagen al cargar el mapa"; //2048x2048
+        pictureShot = "Imagen de fondo en pantalla de carga"; //2048x2048
+        loadingTexts[] = {
+            "Fuerzas Especiales latinas", //Mensajes Inferiores
+            "Mensaje 1",
+            "Mensaje 2",
+            "Mensaje 3"
+        };
+    };
+};
+
+// Registramos la función fnc_ambientFlybys.sqf
+class CfgFunctions {
+    class FEL {
+        class Ambient {
+            class ambientFlybys {
+                file = "functions\fnc_ambientFlybys.sqf";
+            };
+        };
+    };
+};
+
+//=== Recolector de Basura
+minPlayerDistance = 50;
+
+corpseManagerMode = 1; //All
+corpseLimit = 15;
+corpseRemovalMinTime = 120; // seconds.
+corpseRemovalMaxTime = 600; //seconds 
+
+wreckManagerMode = 1;
+wreckLimit = 3;
+wreckRemovalMinTime = 120;
+wreckRemovalMaxTime = 1200;
+
+// === Configuracion Multijugador - MANTENER ESTOS VALORES
+disableChannels[] = {0};
+enableDebugConsole = 1;
